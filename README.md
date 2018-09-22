@@ -30,4 +30,4 @@ The Pager Tag Library is the easy and flexible way to implement paging of large 
 > 					name = java.net.URLEncoder.encode(name, encoding);
 ```
 
-上記の修正のみを行った jar ファイルは[こちら](http://noworks.net/pager-taglib.tar.gz "pager-taglib")からで公開しています。
+上記の修正のみを行った jar ファイルは[こちら](https://s3-ap-northeast-1.amazonaws.com/public.noworks.net/java/pager-taglib.tar.gz "pager-taglib")からで公開しています。
