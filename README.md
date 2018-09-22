@@ -4,7 +4,7 @@ pager-taglib
 The Pager Tag Library is the easy and flexible way to implement paging of large data sets in JavaServer Pages (JSP).
 
 
-元々 [jsptags.com](jsptags.com "jsptags.com") で公開されていたページングライブラリですが、jsptags.com が閉鎖されているので、こちらで公開します。
+元々 [jsptags.com](https://www.jsptags.com/ "jsptags.com") で公開されていたページングライブラリですが、jsptags.com が閉鎖されているので、こちらで公開します。
 本家で公開されているものから既に一部修正を行っています。
 
 
