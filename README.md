@@ -1,6 +1,8 @@
 pager-taglib
 ============
 
+[![Build Status](https://travis-ci.com/noworks/pager-taglib.svg?branch=develop)](https://travis-ci.com/noworks/pager-taglib)
+
 The Pager Tag Library is the easy and flexible way to implement paging of large data sets in JavaServer Pages (JSP).
 
 
@@ -11,7 +13,7 @@ The Pager Tag Library is the easy and flexible way to implement paging of large 
 
 
 
-# 公開前の修正
+## 公開前の修正
 
 コミットログに残っていない修正は以下の通りです。
 
@@ -31,3 +33,14 @@ The Pager Tag Library is the easy and flexible way to implement paging of large 
 ```
 
 上記の修正のみを行った jar ファイルは[こちら](https://s3-ap-northeast-1.amazonaws.com/public.noworks.net/java/pager-taglib.tar.gz "pager-taglib")からで公開しています。
+
+
+## CloudSoner
+
+```
+mvn sonar:sonar \
+  -Dsonar.projectKey=noworks_pager-taglib \
+  -Dsonar.organization=noworks-github \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=05c30261224991c41816002525cb4a71267868b6
+```
