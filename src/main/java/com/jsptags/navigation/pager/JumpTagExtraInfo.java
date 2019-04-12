@@ -20,8 +20,7 @@
 
 package com.jsptags.navigation.pager;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
+import javax.servlet.jsp.tagext.TagData;
 
 public final class JumpTagExtraInfo extends PageTagExtraInfo {
 

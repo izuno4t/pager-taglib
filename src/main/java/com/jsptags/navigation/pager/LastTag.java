@@ -22,6 +22,8 @@ package com.jsptags.navigation.pager;
 
 public final class LastTag extends JumpTagSupport {
 
+	private static final long serialVersionUID = 1L;
+
 	protected int getJumpPage() {
 		return (pagerTag.getPageCount() - 1);
 	}

@@ -21,10 +21,10 @@
 package com.jsptags.navigation.pager;
 
 import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
 
 public abstract class SkipTagSupport extends PageTagSupport {
 
+	private static final long serialVersionUID = 1L;
 	private boolean ifnull = false;
 
 	public final void setIfnull(boolean b) {
