@@ -30,7 +30,7 @@ The Pager Tag Library is the easy and flexible way to implement paging of large 
 
 上記の修正のみを行った jar ファイルは[こちら](https://s3-ap-northeast-1.amazonaws.com/public.noworks.net/java/pager-taglib.tar.gz "pager-taglib")からで公開しています。
 
-sonarcloud
+sonarcloud.io
 ---------------
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=noworks_pager-taglib)](https://sonarcloud.io/dashboard?id=noworks_pager-taglib)
