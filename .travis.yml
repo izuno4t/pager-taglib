@@ -1,2 +1,14 @@
 language: java
+dist: trusty
 
+jdk:
+  - oraclejdk8
+
+addons:
+  sonarcloud:
+    organization: "noworks-github" # the key of the org you chose at step #3
+    token:
+      secure: 05c30261224991c41816002525cb4a71267868b6
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
