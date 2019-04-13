@@ -15,23 +15,25 @@ The Pager Tag Library is the easy and flexible way to implement paging of large 
 
 ```java
 197a198
-> 			String encoding = pageContext.getRequest().getCharacterEncoding();
+>             String encoding = pageContext.getRequest().getCharacterEncoding();
 199,200c200,201
-< 				name = java.net.URLEncoder.encode(name);
-< 				value = java.net.URLEncoder.encode(value);
+<                 name = java.net.URLEncoder.encode(name);
+<                 value = java.net.URLEncoder.encode(value);
 ---
-> 				name = java.net.URLEncoder.encode(name, encoding);
-> 				value = java.net.URLEncoder.encode(value, encoding);
+>                 name = java.net.URLEncoder.encode(name, encoding);
+>                 value = java.net.URLEncoder.encode(value, encoding);
 212c213
-< 					name = java.net.URLEncoder.encode(name);
+<                     name = java.net.URLEncoder.encode(name);
 ---
-> 					name = java.net.URLEncoder.encode(name, encoding);
+>                     name = java.net.URLEncoder.encode(name, encoding);
 ```
 
 上記の修正のみを行った jar ファイルは[こちら](https://s3-ap-northeast-1.amazonaws.com/public.noworks.net/java/pager-taglib.tar.gz "pager-taglib")からで公開しています。
 
-CloudSoner
+sonarcloud
 ---------------
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=noworks_pager-taglib)](https://sonarcloud.io/dashboard?id=noworks_pager-taglib)
 
 ```bash
 mvn sonar:sonar \
