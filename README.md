@@ -1,7 +1,7 @@
 pager-taglib
 ============
 
-[![Build Status](https://travis-ci.com/noworks/pager-taglib.svg?branch=develop)](https://travis-ci.com/noworks/pager-taglib)
+[![Build Status](https://travis-ci.com/izuno4t/pager-taglib.svg?branch=develop)](https://travis-ci.com/noworks/pager-taglib)
 
 The Pager Tag Library is the easy and flexible way to implement paging of large data sets in JavaServer Pages (JSP).
 
