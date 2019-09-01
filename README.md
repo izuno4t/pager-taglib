@@ -40,5 +40,5 @@ mvn sonar:sonar \
   -Dsonar.projectKey=noworks_pager-taglib \
   -Dsonar.organization=noworks-github \
   -Dsonar.host.url=https://sonarcloud.io \
-  -Dsonar.login=05c30261224991c41816002525cb4a71267868b6
+  -Dsonar.login=xxxxxx
 ```
