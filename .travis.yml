@@ -8,7 +8,7 @@ addons:
   sonarcloud:
     organization: "izuno4t-github"
     token:
-      secure: "travis encrypt 0fbedb14ab41bfdc5b0dbd764b2793e84413d0c7" # encrypted value of your token
+      secure: "0fbedb14ab41bfdc5b0dbd764b2793e84413d0c7" # encrypted value of your token
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
