@@ -33,7 +33,7 @@ The Pager Tag Library is the easy and flexible way to implement paging of large 
 sonarcloud
 ---------------
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=noworks_pager-taglib)](https://sonarcloud.io/dashboard?id=noworks_pager-taglib)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=izuno4t_pager-taglib)](https://sonarcloud.io/dashboard?id=izuno4t_pager-taglib)
 
 ```bash
 mvn sonar:sonar \
