@@ -6,9 +6,10 @@ jdk:
 
 addons:
   sonarcloud:
-    organization: "noworks-github" # the key of the org you chose at step #3
+    organization: "izuno4t-github"
     token:
-      secure: 05c30261224991c41816002525cb4a71267868b6
+      secure: "travis encrypt 0fbedb14ab41bfdc5b0dbd764b2793e84413d0c7" # encrypted value of your token
+
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=izuno4t_pager-taglib
