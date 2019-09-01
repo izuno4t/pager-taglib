@@ -22,6 +22,7 @@ package com.jsptags.navigation.pager;
 
 public final class SkipTag extends SkipTagSupport {
 
+	private static final long serialVersionUID = 1L;
 	private int pages = 0;
 
 	public final void setPages(int value) {

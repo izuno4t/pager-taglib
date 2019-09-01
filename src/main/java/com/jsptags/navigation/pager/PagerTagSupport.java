@@ -25,6 +25,7 @@ import javax.servlet.jsp.tagext.*;
 
 public abstract class PagerTagSupport extends TagSupport {
 
+	private static final long serialVersionUID = 1L;
 	protected PagerTag pagerTag = null;
 
 	protected final void restoreAttribute(String name, Object oldValue) {

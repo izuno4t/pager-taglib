@@ -22,6 +22,8 @@ package com.jsptags.navigation.pager;
 
 public final class PrevTag extends SkipTagSupport {
 
+	private static final long serialVersionUID = 1L;
+
 	protected boolean skip() {
 		boolean hasPage = pagerTag.hasPrevPage();
 		if (hasPage)

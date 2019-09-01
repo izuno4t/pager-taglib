@@ -26,6 +26,7 @@ import java.io.IOException;
 
 public final class PagesTag extends PageTagSupport implements BodyTag {
 
+	private static final long serialVersionUID = 1L;
 	private BodyContent bodyContent = null;
 	private int page = 0;
 	private int lastPage = 0;

@@ -35,6 +35,8 @@ import com.jsptags.navigation.pager.parser.TagExportParser;
 
 public final class PagerTag extends TagSupport {
 
+	private static final long serialVersionUID = 1L;
+
 	static final String DEFAULT_ID = "pager";
 
 	private static final int DEFAULT_MAX_ITEMS = Integer.MAX_VALUE,
@@ -221,8 +223,7 @@ public final class PagerTag extends TagSupport {
 				}
 			}
 		} catch (UnsupportedEncodingException e) {
-			// TODO é©ìÆê∂ê¨Ç≥ÇÍÇΩ catch ÉuÉçÉbÉN
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 

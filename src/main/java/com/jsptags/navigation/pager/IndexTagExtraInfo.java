@@ -20,9 +20,13 @@
 
 package com.jsptags.navigation.pager;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import com.jsptags.navigation.pager.parser.*;
+import javax.servlet.jsp.tagext.TagData;
+import javax.servlet.jsp.tagext.TagExtraInfo;
+import javax.servlet.jsp.tagext.VariableInfo;
+
+import com.jsptags.navigation.pager.parser.IndexTagExport;
+import com.jsptags.navigation.pager.parser.ParseException;
+import com.jsptags.navigation.pager.parser.TagExportParser;
 
 public final class IndexTagExtraInfo extends TagExtraInfo {
 

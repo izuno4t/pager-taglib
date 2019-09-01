@@ -20,11 +20,16 @@
 
 package com.jsptags.navigation.pager;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import com.jsptags.navigation.pager.parser.*;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspTagException;
+
+import com.jsptags.navigation.pager.parser.PageTagExport;
+import com.jsptags.navigation.pager.parser.ParseException;
+import com.jsptags.navigation.pager.parser.TagExportParser;
 
 public abstract class PageTagSupport extends PagerTagSupport {
+
+	private static final long serialVersionUID = 1L;
 
 	private String export = null;
 

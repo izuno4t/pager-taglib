@@ -20,11 +20,11 @@
 
 package com.jsptags.navigation.pager;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
+import javax.servlet.jsp.JspException;
 
 public final class ParamTag extends PagerTagSupport {
 
+	private static final long serialVersionUID = 1L;
 	private String name = null;
 	private String value = null;
 

@@ -20,10 +20,11 @@
 
 package com.jsptags.navigation.pager;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
+import javax.servlet.jsp.JspException;
 
 public final class ItemTag extends PagerTagSupport {
+
+	private static final long serialVersionUID = 1L;
 
 	public int doStartTag() throws JspException {
 		super.doStartTag();
