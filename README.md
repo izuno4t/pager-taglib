@@ -1,7 +1,7 @@
 pager-taglib
 ============
 
-[![Build Status](https://travis-ci.com/noworks/pager-taglib.svg?branch=develop)](https://travis-ci.com/noworks/pager-taglib)
+[![Build Status](https://travis-ci.com/izuno4t/pager-taglib.svg?branch=develop)](https://travis-ci.com/izuno4t/pager-taglib)
 
 The Pager Tag Library is the easy and flexible way to implement paging of large data sets in JavaServer Pages (JSP).
 
@@ -33,12 +33,12 @@ The Pager Tag Library is the easy and flexible way to implement paging of large 
 sonarcloud.io
 ---------------
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=noworks_pager-taglib)](https://sonarcloud.io/dashboard?id=noworks_pager-taglib)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=izuno4t_pager-taglib)](https://sonarcloud.io/dashboard?id=izuno4t_pager-taglib)
 
 ```bash
 mvn sonar:sonar \
   -Dsonar.projectKey=noworks_pager-taglib \
   -Dsonar.organization=noworks-github \
   -Dsonar.host.url=https://sonarcloud.io \
-  -Dsonar.login=05c30261224991c41816002525cb4a71267868b6
+  -Dsonar.login=xxxxxx
 ```
