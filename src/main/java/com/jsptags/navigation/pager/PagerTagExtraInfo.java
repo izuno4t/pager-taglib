@@ -30,30 +30,34 @@ import com.jsptags.navigation.pager.parser.TagExportParser;
 
 public final class PagerTagExtraInfo extends TagExtraInfo {
 
+	@Override
 	public VariableInfo[] getVariableInfo(TagData tagData) {
 		String export = tagData.getAttributeString("export");
 		if (export != null) {
 			try {
-				PagerTagExport pagerTagExport =
-					TagExportParser.parsePagerTagExport(export);
+				PagerTagExport pagerTagExport = TagExportParser.parsePagerTagExport(export);
 				int len = 0;
-				if (pagerTagExport.getPageOffset() != null)
+				if (pagerTagExport.getPageOffset() != null) {
 					len++;
-				if (pagerTagExport.getPageNumber() != null)
+				}
+				if (pagerTagExport.getPageNumber() != null) {
 					len++;
+				}
 
 				VariableInfo[] varinfo = new VariableInfo[len];
 				int i = 0;
 
 				String name;
-				if ((name = pagerTagExport.getPageOffset()) != null)
+				if ((name = pagerTagExport.getPageOffset()) != null) {
 					varinfo[i++] = new VariableInfo(name,
-							java.lang.Integer.class.getName(),
+							Integer.class.getName(),
 							true, VariableInfo.NESTED);
-				if ((name = pagerTagExport.getPageNumber()) != null)
+				}
+				if ((name = pagerTagExport.getPageNumber()) != null) {
 					varinfo[i++] = new VariableInfo(name,
-							java.lang.Integer.class.getName(),
+							Integer.class.getName(),
 							true, VariableInfo.NESTED);
+				}
 
 				return varinfo;
 			} catch (ParseException ex)  {
@@ -63,6 +67,7 @@ public final class PagerTagExtraInfo extends TagExtraInfo {
 		return new VariableInfo[0];
 	}
 
+	@Override
 	public boolean isValid(TagData tagData) {
 		String export = tagData.getAttributeString("export");
 		if (export != null) {

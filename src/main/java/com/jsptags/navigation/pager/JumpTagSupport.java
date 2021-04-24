@@ -46,20 +46,23 @@ public abstract class JumpTagSupport extends PageTagSupport {
 		return unless;
 	}
 
+	@Override
 	public int doStartTag() throws JspException {
 		super.doStartTag();
 
 		int jumpPage = getJumpPage();
 
 		if (CURRENT.equals(unless)) {
-			if (jumpPage == pagerTag.getPageNumber())
+			if (jumpPage == pagerTag.getPageNumber()) {
 				return SKIP_BODY;
+			}
 		} else if (INDEXED.equals(unless)) {
 			int firstPage = pagerTag.getFirstIndexPage();
 			int lastPage = pagerTag.getLastIndexPage(firstPage);
 
-			if (jumpPage >= firstPage && jumpPage <= lastPage)
+			if (jumpPage >= firstPage && jumpPage <= lastPage) {
 				return SKIP_BODY;
+			}
 		}
 
 		setPageAttributes(jumpPage);
@@ -67,6 +70,7 @@ public abstract class JumpTagSupport extends PageTagSupport {
 		return EVAL_BODY_INCLUDE;
 	}
 
+	@Override
 	public void release() {
 		unless = null;
 		super.release();

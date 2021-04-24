@@ -63,7 +63,10 @@ public class TagExportParser implements TagExportParserConstants {
                 token_source.SwitchTo(PAGER_STATE);
     pagerExportDeclaration(pagerTagExport);
     jj_consume_token(0);
-                {if (true) return pagerTagExport;}
+                {if (true) {
+                  return pagerTagExport;
+                }
+                }
     throw new Error("Missing return statement in function");
   }
 
@@ -78,7 +81,6 @@ public class TagExportParser implements TagExportParserConstants {
       case PAGER_PAGENUMBER:
       case PAGER_PAGEOFFSET:
       case IDENTIFIER:
-        ;
         break;
       default:
         jj_la1[0] = jj_gen;
@@ -93,7 +95,6 @@ public class TagExportParser implements TagExportParserConstants {
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case COMMA:
-        ;
         break;
       default:
         jj_la1[1] = jj_gen;
@@ -108,7 +109,6 @@ public class TagExportParser implements TagExportParserConstants {
       break;
     default:
       jj_la1[2] = jj_gen;
-      ;
     }
   }
 
@@ -213,7 +213,10 @@ public class TagExportParser implements TagExportParserConstants {
                 token_source.SwitchTo(INDEX_STATE);
     indexExportDeclaration(indexTagExport);
     jj_consume_token(0);
-                {if (true) return indexTagExport;}
+                {if (true) {
+                  return indexTagExport;
+                }
+                }
     throw new Error("Missing return statement in function");
   }
 
@@ -227,7 +230,6 @@ public class TagExportParser implements TagExportParserConstants {
       case INDEX_PAGECOUNT:
       case INDEX_PAGES:
       case IDENTIFIER:
-        ;
         break;
       default:
         jj_la1[9] = jj_gen;
@@ -242,7 +244,6 @@ public class TagExportParser implements TagExportParserConstants {
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case COMMA:
-        ;
         break;
       default:
         jj_la1[10] = jj_gen;
@@ -257,7 +258,6 @@ public class TagExportParser implements TagExportParserConstants {
       break;
     default:
       jj_la1[11] = jj_gen;
-      ;
     }
   }
 
@@ -354,7 +354,10 @@ public class TagExportParser implements TagExportParserConstants {
                 token_source.SwitchTo(PAGE_STATE);
     pageExportDeclaration(pageTagExport);
     jj_consume_token(0);
-                {if (true) return pageTagExport;}
+                {if (true) {
+                  return pageTagExport;
+                }
+                }
     throw new Error("Missing return statement in function");
   }
 
@@ -373,7 +376,6 @@ public class TagExportParser implements TagExportParserConstants {
       case PAGE_PAGEURL:
       case PAGE_URL:
       case IDENTIFIER:
-        ;
         break;
       default:
         jj_la1[18] = jj_gen;
@@ -388,7 +390,6 @@ public class TagExportParser implements TagExportParserConstants {
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case COMMA:
-        ;
         break;
       default:
         jj_la1[19] = jj_gen;
@@ -403,7 +404,6 @@ public class TagExportParser implements TagExportParserConstants {
       break;
     default:
       jj_la1[20] = jj_gen;
-      ;
     }
   }
 
@@ -581,7 +581,9 @@ public class TagExportParser implements TagExportParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 31; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 31; i++) {
+      jj_la1[i] = -1;
+    }
   }
 
   public void ReInit(java.io.InputStream stream) {
@@ -590,7 +592,9 @@ public class TagExportParser implements TagExportParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 31; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 31; i++) {
+      jj_la1[i] = -1;
+    }
   }
 
   public TagExportParser(java.io.Reader stream) {
@@ -599,7 +603,9 @@ public class TagExportParser implements TagExportParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 31; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 31; i++) {
+      jj_la1[i] = -1;
+    }
   }
 
   public void ReInit(java.io.Reader stream) {
@@ -608,7 +614,9 @@ public class TagExportParser implements TagExportParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 31; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 31; i++) {
+      jj_la1[i] = -1;
+    }
   }
 
   public TagExportParser(TagExportParserTokenManager tm) {
@@ -616,7 +624,9 @@ public class TagExportParser implements TagExportParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 31; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 31; i++) {
+      jj_la1[i] = -1;
+    }
   }
 
   public void ReInit(TagExportParserTokenManager tm) {
@@ -624,13 +634,18 @@ public class TagExportParser implements TagExportParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 31; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 31; i++) {
+      jj_la1[i] = -1;
+    }
   }
 
-  final private Token jj_consume_token(int kind) throws ParseException {
+  private Token jj_consume_token(int kind) throws ParseException {
     Token oldToken;
-    if ((oldToken = token).next != null) token = token.next;
-    else token = token.next = token_source.getNextToken();
+    if ((oldToken = token).next != null) {
+      token = token.next;
+    } else {
+      token = token.next = token_source.getNextToken();
+    }
     jj_ntk = -1;
     if (token.kind == kind) {
       jj_gen++;
@@ -642,8 +657,11 @@ public class TagExportParser implements TagExportParserConstants {
   }
 
   final public Token getNextToken() {
-    if (token.next != null) token = token.next;
-    else token = token.next = token_source.getNextToken();
+    if (token.next != null) {
+      token = token.next;
+    } else {
+      token = token.next = token_source.getNextToken();
+    }
     jj_ntk = -1;
     jj_gen++;
     return token;
@@ -652,17 +670,21 @@ public class TagExportParser implements TagExportParserConstants {
   final public Token getToken(int index) {
     Token t = token;
     for (int i = 0; i < index; i++) {
-      if (t.next != null) t = t.next;
-      else t = t.next = token_source.getNextToken();
+      if (t.next != null) {
+        t = t.next;
+      } else {
+        t = t.next = token_source.getNextToken();
+      }
     }
     return t;
   }
 
-  final private int jj_ntk() {
-    if ((jj_nt=token.next) == null)
+  private int jj_ntk() {
+    if ((jj_nt=token.next) == null) {
       return (jj_ntk = (token.next=token_source.getNextToken()).kind);
-    else
+    } else {
       return (jj_ntk = jj_nt.kind);
+    }
   }
 
   private java.util.Vector jj_expentries = new java.util.Vector();

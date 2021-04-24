@@ -25,34 +25,34 @@ import javax.servlet.jsp.*;
 public abstract class SkipTagSupport extends PageTagSupport {
 
 	private static final long serialVersionUID = 1L;
-	private boolean ifnull = false;
+	private boolean ifNull = false;
 
-	public final void setIfnull(boolean b) {
-		ifnull = b;
+	public final void setIfNull(boolean b) {
+		ifNull = b;
 	}
 
-	public final boolean getIfnull() {
-		return ifnull;
+	public final boolean getIfNull() {
+		return ifNull;
 	}
 
 	protected abstract boolean skip();
 
+	@Override
 	public int doStartTag() throws JspException {
 		super.doStartTag();
 
 		if (!skip()) {
-
-			if (!ifnull)
+			if (!ifNull) {
 				return SKIP_BODY;
-
+			}
 			removeAttributes();
 		}
-
 		return EVAL_BODY_INCLUDE;
 	}
 
+	@Override
 	public void release() {
-		ifnull = false;
+		ifNull = false;
 		super.release();
 	}
 }

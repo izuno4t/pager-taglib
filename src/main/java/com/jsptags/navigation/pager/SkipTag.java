@@ -33,16 +33,18 @@ public final class SkipTag extends SkipTagSupport {
 	    return pages;
 	}
 
+	@Override
 	protected boolean skip() {
 		int skipPage = pagerTag.getPageNumber() + pages;
 
 		boolean hasPage = pagerTag.hasPage(skipPage);
-		if (hasPage)
+		if (hasPage) {
 			setPageAttributes(skipPage);
-
+		}
 		return hasPage;
 	}
 
+	@Override
 	public void release() {
 		pages = 0;
 		super.release();

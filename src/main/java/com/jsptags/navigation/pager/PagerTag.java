@@ -101,6 +101,7 @@ public final class PagerTag extends TagSupport {
 		id = DEFAULT_ID;
 	}
 
+	@Override
 	public final void setId(String sid) {
 		super.setId(sid);
 		idOffsetParam = sid + OFFSET_PARAM;
@@ -282,8 +283,9 @@ public final class PagerTag extends TagSupport {
 	}
 
 	final Integer getPageNumber(int i) {
-		if (i == pageNumber)
+		if (i == pageNumber) {
 			return pageNumberInteger;
+		}
 		return new Integer(1 + i);
 	}
 
@@ -308,8 +310,9 @@ public final class PagerTag extends TagSupport {
 				firstPage = Math.max(0, pageNumber - halfIndexPages);
 
 				int indexPages = pages - firstPage;
-				if (indexPages < maxIndexPages)
+				if (indexPages < maxIndexPages) {
 					firstPage -= (maxIndexPages - indexPages);
+				}
 			}
 		}
 
@@ -332,10 +335,11 @@ public final class PagerTag extends TagSupport {
 		return (items != 0 ? items : itemCount);
 	}
 
-	private final int pageNumber(int offset) {
+	private int pageNumber(int offset) {
 		return (offset / maxPageItems) + (offset % maxPageItems == 0 ? 0 : 1);
 	}
 
+	@Override
 	public int doStartTag() throws JspException {
 
 		String baseUri;
@@ -345,13 +349,15 @@ public final class PagerTag extends TagSupport {
 			baseUri = ((HttpServletRequest) pageContext.getRequest())
 					.getRequestURI();
 			int i = baseUri.indexOf('?');
-			if (i != -1)
+			if (i != -1) {
 				baseUri = baseUri.substring(0, i);
+			}
 		}
-		if (uri == null)
+		if (uri == null) {
 			uri = new StringBuffer(baseUri.length() + 32);
-		else
+		} else {
 			uri.setLength(0);
+		}
 		uri.append(baseUri);
 
 		params = 0;
@@ -363,8 +369,9 @@ public final class PagerTag extends TagSupport {
 		if (offsetParam != null) {
 			try {
 				offset = Math.max(0, Integer.parseInt(offsetParam));
-				if (isOffset)
+				if (isOffset) {
 					itemCount = offset;
+				}
 			} catch (NumberFormatException ignore) {
 			}
 		}
@@ -408,20 +415,23 @@ public final class PagerTag extends TagSupport {
 
 	private static void restoreAttribute(ServletRequest request, String name,
 			Object oldValue) {
-		if (oldValue != null)
+		if (oldValue != null) {
 			request.setAttribute(name, oldValue);
-		else
+		} else {
 			request.removeAttribute(name);
+		}
 	}
 
 	private static void restoreAttribute(PageContext pageContext, String name,
 			Object oldValue) {
-		if (oldValue != null)
+		if (oldValue != null) {
 			pageContext.setAttribute(name, oldValue);
-		else
+		} else {
 			pageContext.removeAttribute(name);
+		}
 	}
 
+	@Override
 	public int doEndTag() throws JspException {
 		if (REQUEST.equals(scope)) {
 			ServletRequest request = pageContext.getRequest();
@@ -457,14 +467,16 @@ public final class PagerTag extends TagSupport {
 		}
 
 		// limit size of re-usable StringBuffer
-		if (uri.capacity() > 1024)
+		if (uri.capacity() > 1024) {
 			uri = null;
+		}
 
 		pageNumberInteger = null;
 
 		return EVAL_PAGE;
 	}
 
+	@Override
 	public void release() {
 		url = null;
 		index = null;

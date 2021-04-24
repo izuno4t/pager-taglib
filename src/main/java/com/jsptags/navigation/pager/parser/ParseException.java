@@ -11,7 +11,7 @@ package com.jsptags.navigation.pager.parser;
  * mechanisms so long as you retain the public fields.
  */
 public class ParseException extends Exception {
-
+    
   private static final long serialVersionUID = 1L;
 
   /**
@@ -94,6 +94,7 @@ public class ParseException extends Exception {
    * of the final stack trace, and hence the correct error message
    * gets displayed.
    */
+  @Override
   public String getMessage() {
     if (!specialConstructor) {
       return super.getMessage();
@@ -115,7 +116,9 @@ public class ParseException extends Exception {
     String retval = "Encountered \"";
     Token tok = currentToken.next;
     for (int i = 0; i < maxSize; i++) {
-      if (i != 0) retval += " ";
+      if (i != 0) {
+          retval += " ";
+      }
       if (tok.kind == 0) {
         retval += tokenImage[0];
         break;

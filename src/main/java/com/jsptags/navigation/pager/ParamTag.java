@@ -44,6 +44,7 @@ public final class ParamTag extends PagerTagSupport {
 		return value;
 	}
 
+	@Override
 	public int doStartTag() throws JspException {
 		super.doStartTag();
 
@@ -52,6 +53,7 @@ public final class ParamTag extends PagerTagSupport {
 		return EVAL_BODY_INCLUDE;
 	}
 
+	@Override
 	public void release() {
 		name = null;
 		value = null;

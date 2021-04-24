@@ -30,32 +30,38 @@ import com.jsptags.navigation.pager.parser.TagExportParser;
 
 public final class IndexTagExtraInfo extends TagExtraInfo {
 
+	@Override
 	public VariableInfo[] getVariableInfo(TagData tagData) {
+
 		String export = tagData.getAttributeString("export");
 		if (export != null) {
 			try {
 				IndexTagExport indexTagExport =
 					TagExportParser.parseIndexTagExport(export);
 				int len = 0;
-				if (indexTagExport.getItemCount() != null)
+				if (indexTagExport.getItemCount() != null) {
 					len++;
-				if (indexTagExport.getPageCount() != null)
+				}
+				if (indexTagExport.getPageCount() != null) {
 					len++;
+				}
 
-				VariableInfo[] varinfo = new VariableInfo[len];
+				VariableInfo[] varInfo = new VariableInfo[len];
 				int i = 0;
 
 				String name;
-				if ((name = indexTagExport.getItemCount()) != null)
-					varinfo[i++] = new VariableInfo(name,
-							java.lang.Integer.class.getName(),
+				if ((name = indexTagExport.getItemCount()) != null) {
+					varInfo[i++] = new VariableInfo(name,
+							Integer.class.getName(),
 							true, VariableInfo.NESTED);
-				if ((name = indexTagExport.getPageCount()) != null)
-					varinfo[i++] = new VariableInfo(name,
-							java.lang.Integer.class.getName(),
+				}
+				if ((name = indexTagExport.getPageCount()) != null) {
+					varInfo[i++] = new VariableInfo(name,
+							Integer.class.getName(),
 							true, VariableInfo.NESTED);
+				}
 
-				return varinfo;
+				return varInfo;
 			} catch (ParseException ex)  {
 				return new VariableInfo[0];
 			}
@@ -64,6 +70,7 @@ public final class IndexTagExtraInfo extends TagExtraInfo {
 		}
 	}
 
+	@Override
 	public boolean isValid(TagData tagData) {
 		String export = tagData.getAttributeString("export");
 		if (export != null) {

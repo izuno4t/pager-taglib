@@ -53,6 +53,7 @@ public class Token {
   /**
    * Returns the image.
    */
+  @Override
   public final String toString()
   {
      return image;
@@ -70,12 +71,8 @@ public class Token {
    * to the following switch statement. Then you can cast matchedToken
    * variable to the appropriate type and use it in your lexical actions.
    */
-  public static final Token newToken(int ofKind)
-  {
-     switch(ofKind)
-     {
-       default : return new Token();
-     }
+  public static Token newToken(int ofKind) {
+    return new Token();
   }
 
 }
