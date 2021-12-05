@@ -21,10 +21,15 @@ jobs:
           java-version: "8"
           distribution: "liberica"
           cache: maven
+          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+          settings-path: ${{ github.workspace }} # location for the settings.xml file
+
       - name: Build with Maven
         run: ./mvnw -B package --file pom.xml
+
       - name: settings.xml
         run: cat $GITHUB_WORKSPACE/settings.xml
+
       - name: Publish SNAPSHOT to GitHub Packages Apache Maven
         run: ./mvnw deploy -s $GITHUB_WORKSPACE/settings.xml
         env:
