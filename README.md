@@ -2,9 +2,12 @@
 
 [![Build Status](https://travis-ci.com/izuno4t/pager-taglib.svg?branch=develop)](https://travis-ci.com/izuno4t/pager-taglib)
 
-The Pager Tag Library is the easy and flexible way to implement paging of large data sets in JavaServer Pages (JSP).
+The Pager Tag Library is the easy and flexible way to implement paging of
+large data sets in JavaServer Pages (JSP).
 
-元々 [jsptags.com](https://www.jsptags.com/ "jsptags.com") で公開されていたページングライブラリですが、jsptags.com が閉鎖されているので、こちらで公開します。
+元々 [jsptags.com](https://www.jsptags.com/ "jsptags.com")
+で公開されていたページングライブラリですが、jsptags.com
+が閉鎖されているので、こちらで公開します。
 本家で公開されているものから既に一部修正を行っています。
 
 ## 公開前の修正
@@ -26,7 +29,9 @@ The Pager Tag Library is the easy and flexible way to implement paging of large 
 >                     name = java.net.URLEncoder.encode(name, encoding);
 ```
 
-上記の修正のみを行った jar ファイルは[こちら](https://s3-ap-northeast-1.amazonaws.com/public.noworks.net/java/pager-taglib.tar.gz "pager-taglib")からで公開しています。
+上記の修正のみを行った jar ファイルは
+[こちら](https://s3-ap-northeast-1.amazonaws.com/public.noworks.net/java/pager-taglib.tar.gz "pager-taglib")
+からで公開しています。
 
 ## Snapshot の公開
 
