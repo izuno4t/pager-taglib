@@ -144,7 +144,11 @@ public final class PagerTag extends TagSupport {
 		return maxItems;
 	}
 
-	public final void setMaxPageItems(int value) {
+	public final void setMaxPageItems(int value) throws JspException {
+		if (value <= 0) {
+			throw new JspTagException(
+					"value for attribute \"maxPageItems\" must be greater than zero.");
+		}
 		maxPageItems = value;
 	}
 
