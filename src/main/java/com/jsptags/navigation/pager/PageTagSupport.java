@@ -41,7 +41,7 @@ public abstract class PageTagSupport extends PagerTagSupport {
 
 
 	public final void setExport(String value) throws JspException {
-		if (export != value) {
+		if (export == null ? value != null : !export.equals(value)) {
 			try {
 				pageTagExport = TagExportParser.parsePageTagExport(value);
 			} catch (ParseException ex) {

@@ -37,7 +37,7 @@ class PagesTagTest {
 		doNothing().when(bodyContent).writeOut(enclosingWriter);
 
 		int start = tag.doStartTag();
-		assertThat(start).isEqualTo(PagesTag.EVAL_BODY_TAG);
+		assertThat(start).isEqualTo(PagesTag.EVAL_BODY_BUFFERED);
 
 		tag.setBodyContent(bodyContent);
 		tag.doInitBody();
@@ -101,7 +101,7 @@ class PagesTagTest {
 		org.mockito.Mockito.doThrow(new java.io.IOException("fail"))
 				.when(bodyContent).writeOut(enclosingWriter);
 
-		assertThat(tag.doStartTag()).isEqualTo(PagesTag.EVAL_BODY_TAG);
+		assertThat(tag.doStartTag()).isEqualTo(PagesTag.EVAL_BODY_BUFFERED);
 		tag.setBodyContent(bodyContent);
 		tag.doInitBody();
 

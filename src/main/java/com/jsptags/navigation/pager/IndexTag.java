@@ -35,7 +35,7 @@ public final class IndexTag extends PagerTagSupport {
 
 
 	public final void setExport(String value) throws JspException {
-		if (export != value) {
+		if (export == null ? value != null : !export.equals(value)) {
 			try {
 				indexTagExport = TagExportParser.parseIndexTagExport(value);
 			} catch (ParseException ex) {

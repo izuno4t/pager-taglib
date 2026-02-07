@@ -341,6 +341,7 @@ public final class JavaCharStream
    * @see #getEndColumn
    */
 
+  @Deprecated
   public final int getColumn() {
      return bufcolumn[bufpos];
   }
@@ -350,6 +351,7 @@ public final class JavaCharStream
    * @see #getEndLine
    */
 
+  @Deprecated
   public final int getLine() {
      return bufline[bufpos];
   }

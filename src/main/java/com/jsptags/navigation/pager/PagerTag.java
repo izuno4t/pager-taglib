@@ -75,7 +75,7 @@ public final class PagerTag extends TagSupport {
 	/*
 	 * Tag Variables
 	 */
-	private StringBuffer uri = null;
+	private StringBuilder uri = null;
 
 	private int params = 0;
 
@@ -174,7 +174,7 @@ public final class PagerTag extends TagSupport {
 	}
 
 	public final void setExport(String value) throws JspException {
-		if (export != value) {
+		if (export == null ? value != null : !export.equals(value)) {
 			try {
 				pagerTagExport = TagExportParser.parsePagerTagExport(value);
 			} catch (ParseException ex) {
@@ -283,14 +283,14 @@ public final class PagerTag extends TagSupport {
 	}
 
 	final Integer getOffsetPageNumber(int pageOffset) {
-		return new Integer(1 + pageNumber(pageOffset));
+		return Integer.valueOf(1 + pageNumber(pageOffset));
 	}
 
 	final Integer getPageNumber(int i) {
 		if (i == pageNumber) {
 			return pageNumberInteger;
 		}
-		return new Integer(1 + i);
+		return Integer.valueOf(1 + i);
 	}
 
 	final int getPageNumber() {
@@ -358,7 +358,7 @@ public final class PagerTag extends TagSupport {
 			}
 		}
 		if (uri == null) {
-			uri = new StringBuffer(baseUri.length() + 32);
+			uri = new StringBuilder(baseUri.length() + 32);
 		} else {
 			uri.setLength(0);
 		}
@@ -381,7 +381,7 @@ public final class PagerTag extends TagSupport {
 		}
 
 		pageNumber = pageNumber(offset);
-		pageNumberInteger = new Integer(1 + pageNumber);
+		pageNumberInteger = Integer.valueOf(1 + pageNumber);
 
 		if (REQUEST.equals(scope)) {
 			ServletRequest request = pageContext.getRequest();
@@ -393,7 +393,7 @@ public final class PagerTag extends TagSupport {
 				String name;
 				if ((name = pagerTagExport.getPageOffset()) != null) {
 					oldOffset = request.getAttribute(name);
-					request.setAttribute(name, new Integer(offset));
+					request.setAttribute(name, Integer.valueOf(offset));
 				}
 				if ((name = pagerTagExport.getPageNumber()) != null) {
 					oldPageNumber = request.getAttribute(name);
@@ -405,7 +405,7 @@ public final class PagerTag extends TagSupport {
 				String name;
 				if ((name = pagerTagExport.getPageOffset()) != null) {
 					oldOffset = pageContext.getAttribute(name);
-					pageContext.setAttribute(name, new Integer(offset));
+					pageContext.setAttribute(name, Integer.valueOf(offset));
 				}
 				if ((name = pagerTagExport.getPageNumber()) != null) {
 					oldPageNumber = pageContext.getAttribute(name);

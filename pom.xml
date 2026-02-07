@@ -18,6 +18,7 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 					<debug>false</debug>
 					<optimize>true</optimize>
+					<release>${java.version}</release>
 					<showDeprecation>true</showDeprecation>
 					<showWarnings>true</showWarnings>
 				</configuration>

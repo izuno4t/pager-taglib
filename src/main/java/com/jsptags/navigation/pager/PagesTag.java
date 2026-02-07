@@ -43,7 +43,7 @@ public final class PagesTag extends PageTagSupport implements BodyTag {
 		lastPage = pagerTag.getLastIndexPage(firstPage);
 		page = firstPage;
 
-		return (page <= lastPage ? EVAL_BODY_TAG : SKIP_BODY);
+		return (page <= lastPage ? EVAL_BODY_BUFFERED : SKIP_BODY);
 	}
 
 	public void doInitBody() throws JspException {
