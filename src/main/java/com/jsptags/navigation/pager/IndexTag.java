@@ -50,6 +50,7 @@ public final class IndexTag extends PagerTagSupport {
 	}
 
 
+	@Override
 	public int doStartTag() throws JspException {
 		super.doStartTag();
 
@@ -57,20 +58,19 @@ public final class IndexTag extends PagerTagSupport {
 			String name; 
 			if ((name = indexTagExport.getItemCount()) != null) {
 				oldItemCount = pageContext.getAttribute(name);
-				pageContext.setAttribute(name,
-					new Integer(pagerTag.getItemCount()));
+				pageContext.setAttribute(name, pagerTag.getItemCount());
 			}
 
 			if ((name = indexTagExport.getPageCount()) != null) {
 				oldPageCount = pageContext.getAttribute(name);
-				pageContext.setAttribute(name,
-					new Integer(pagerTag.getPageCount()));
+				pageContext.setAttribute(name, pagerTag.getPageCount());
 			}
 		}
 
 		return (pagerTag.isIndexNeeded() ? EVAL_BODY_INCLUDE : SKIP_BODY);
 	}
 
+	@Override
 	public int doEndTag() throws JspException {
 
 		if (indexTagExport != null) {
@@ -91,12 +91,12 @@ public final class IndexTag extends PagerTagSupport {
 		return EVAL_PAGE;
 	}
 
+	@Override
 	public void release() {
 		export = null;
 		indexTagExport = null;
 		oldItemCount = null;
 		oldPageCount = null;
-
 		super.release();
 	}
 }

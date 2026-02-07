@@ -26,9 +26,9 @@ public final class ItemTag extends PagerTagSupport {
 
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	public int doStartTag() throws JspException {
 		super.doStartTag();
-
 		return (pagerTag.nextItem() ? EVAL_BODY_INCLUDE : SKIP_BODY);
 	}
 }

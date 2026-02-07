@@ -26,6 +26,7 @@ public final class PageTag extends PageTagSupport {
 
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	public int doStartTag() throws JspException {
 		super.doStartTag();
 

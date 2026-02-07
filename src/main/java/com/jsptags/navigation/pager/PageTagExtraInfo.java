@@ -30,42 +30,50 @@ import com.jsptags.navigation.pager.parser.TagExportParser;
 
 public class PageTagExtraInfo extends TagExtraInfo {
 
+	@Override
 	public VariableInfo[] getVariableInfo(TagData tagData) {
 		String export = tagData.getAttributeString("export");
 		if (export != null) {
 			try {
-				PageTagExport pageTagExport =
-					TagExportParser.parsePageTagExport(export);
+				PageTagExport pageTagExport = TagExportParser.parsePageTagExport(export);
 				int len = 0;
-				if (pageTagExport.getPageUrl() != null)
+				if (pageTagExport.getPageUrl() != null) {
 					len++;
-				if (pageTagExport.getPageNumber() != null)
+				}
+				if (pageTagExport.getPageNumber() != null) {
 					len++;
-				if (pageTagExport.getFirstItem() != null)
+				}
+				if (pageTagExport.getFirstItem() != null) {
 					len++;
-				if (pageTagExport.getLastItem() != null)
+				}
+				if (pageTagExport.getLastItem() != null) {
 					len++;
+				}
 
 				VariableInfo[] varinfo = new VariableInfo[len];
 				int i = 0;
 
 				String name;
-				if ((name = pageTagExport.getPageUrl()) != null)
+				if ((name = pageTagExport.getPageUrl()) != null) {
 					varinfo[i++] = new VariableInfo(name,
-							java.lang.String.class.getName(),
+							String.class.getName(),
 							true, VariableInfo.NESTED);
-				if ((name = pageTagExport.getPageNumber()) != null)
+				}
+				if ((name = pageTagExport.getPageNumber()) != null) {
 					varinfo[i++] = new VariableInfo(name,
-							java.lang.Integer.class.getName(),
+							Integer.class.getName(),
 							true, VariableInfo.NESTED);
-				if ((name = pageTagExport.getFirstItem()) != null)
+				}
+				if ((name = pageTagExport.getFirstItem()) != null) {
 					varinfo[i++] = new VariableInfo(name,
-							java.lang.Integer.class.getName(),
+							Integer.class.getName(),
 							true, VariableInfo.NESTED);
-				if ((name = pageTagExport.getLastItem()) != null)
+				}
+				if ((name = pageTagExport.getLastItem()) != null) {
 					varinfo[i++] = new VariableInfo(name,
-							java.lang.Integer.class.getName(),
+							Integer.class.getName(),
 							true, VariableInfo.NESTED);
+				}
 
 				return varinfo;
 			} catch (ParseException ex)  {
@@ -83,6 +91,7 @@ public class PageTagExtraInfo extends TagExtraInfo {
 		}
 	}
 
+	@Override
 	public boolean isValid(TagData tagData) {
 		String export = tagData.getAttributeString("export");
 		if (export != null) {

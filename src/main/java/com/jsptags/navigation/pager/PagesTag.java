@@ -35,6 +35,7 @@ public final class PagesTag extends PageTagSupport implements BodyTag {
 		bodyContent = bc;
 	}
 
+	@Override
 	public int doStartTag() throws JspException {
 		super.doStartTag();
 
@@ -50,11 +51,12 @@ public final class PagesTag extends PageTagSupport implements BodyTag {
 		page++;
 	}
 
+	@Override
 	public int doAfterBody() throws JspException {
 		if (page <= lastPage) {
 			setPageAttributes(page);
 			page++;
-			return EVAL_BODY_TAG;
+			return EVAL_BODY_BUFFERED;
 		} else {
 			try {
 				bodyContent.writeOut(bodyContent.getEnclosingWriter());
@@ -65,15 +67,14 @@ public final class PagesTag extends PageTagSupport implements BodyTag {
 		}
 	}
 
+	@Override
 	public int doEndTag() throws JspException {
-
 		bodyContent = null;
-
 		super.doEndTag();
-
 		return EVAL_PAGE;
 	}
 
+	@Override
 	public void release() {
 		bodyContent = null;
 		super.release();
