@@ -37,6 +37,29 @@ class ExtraInfoTest {
 	}
 
 	@Test
+	void pagerTagExtraInfoHandlesNullExport() {
+		TagData tagData = Mockito.mock(TagData.class);
+		Mockito.when(tagData.getAttributeString("export")).thenReturn(null);
+
+		PagerTagExtraInfo info = new PagerTagExtraInfo();
+		VariableInfo[] vars = info.getVariableInfo(tagData);
+		assertThat(vars).isEmpty();
+		assertThat(info.isValid(tagData)).isTrue();
+	}
+
+	@Test
+	void pagerTagExtraInfoSingleVariable() {
+		TagData tagData = Mockito.mock(TagData.class);
+		Mockito.when(tagData.getAttributeString("export"))
+				.thenReturn("pageOffset");
+
+		PagerTagExtraInfo info = new PagerTagExtraInfo();
+		VariableInfo[] vars = info.getVariableInfo(tagData);
+		assertThat(vars).hasSize(1);
+		assertThat(vars[0].getVarName()).isEqualTo("pageOffset");
+	}
+
+	@Test
 	void pageTagExtraInfoProvidesDefaultsWhenNoExport() {
 		TagData tagData = Mockito.mock(TagData.class);
 		Mockito.when(tagData.getAttributeString("export")).thenReturn(null);
@@ -62,6 +85,29 @@ class ExtraInfoTest {
 	}
 
 	@Test
+	void pageTagExtraInfoInvalidExport() {
+		TagData tagData = Mockito.mock(TagData.class);
+		Mockito.when(tagData.getAttributeString("export")).thenReturn("=");
+
+		PageTagExtraInfo info = new PageTagExtraInfo();
+		VariableInfo[] vars = info.getVariableInfo(tagData);
+		assertThat(vars).isEmpty();
+		assertThat(info.isValid(tagData)).isFalse();
+	}
+
+	@Test
+	void pageTagExtraInfoPartialExports() {
+		TagData tagData = Mockito.mock(TagData.class);
+		Mockito.when(tagData.getAttributeString("export"))
+				.thenReturn("pageNumber");
+
+		PageTagExtraInfo info = new PageTagExtraInfo();
+		VariableInfo[] vars = info.getVariableInfo(tagData);
+		assertThat(vars).hasSize(1);
+		assertThat(vars[0].getVarName()).isEqualTo("pageNumber");
+	}
+
+	@Test
 	void indexTagExtraInfoParsesExports() {
 		TagData tagData = Mockito.mock(TagData.class);
 		Mockito.when(tagData.getAttributeString("export"))
@@ -71,6 +117,29 @@ class ExtraInfoTest {
 		VariableInfo[] vars = info.getVariableInfo(tagData);
 		assertThat(vars).hasSize(2);
 		assertThat(info.isValid(tagData)).isTrue();
+	}
+
+	@Test
+	void indexTagExtraInfoHandlesNullExport() {
+		TagData tagData = Mockito.mock(TagData.class);
+		Mockito.when(tagData.getAttributeString("export")).thenReturn(null);
+
+		IndexTagExtraInfo info = new IndexTagExtraInfo();
+		VariableInfo[] vars = info.getVariableInfo(tagData);
+		assertThat(vars).isEmpty();
+		assertThat(info.isValid(tagData)).isTrue();
+	}
+
+	@Test
+	void indexTagExtraInfoSingleVariable() {
+		TagData tagData = Mockito.mock(TagData.class);
+		Mockito.when(tagData.getAttributeString("export"))
+				.thenReturn("itemCount");
+
+		IndexTagExtraInfo info = new IndexTagExtraInfo();
+		VariableInfo[] vars = info.getVariableInfo(tagData);
+		assertThat(vars).hasSize(1);
+		assertThat(vars[0].getVarName()).isEqualTo("itemCount");
 	}
 
 	@Test
@@ -98,6 +167,26 @@ class ExtraInfoTest {
 
 		Mockito.when(tagData.getAttribute("unless"))
 				.thenReturn(TagData.REQUEST_TIME_VALUE);
+		assertThat(info.isValid(tagData)).isTrue();
+	}
+
+	@Test
+	void jumpTagExtraInfoAllowsNonStringUnless() {
+		TagData tagData = Mockito.mock(TagData.class);
+		Mockito.when(tagData.getAttributeString("export")).thenReturn(null);
+		Mockito.when(tagData.getAttribute("unless")).thenReturn(Integer.valueOf(1));
+
+		JumpTagExtraInfo info = new JumpTagExtraInfo();
+		assertThat(info.isValid(tagData)).isTrue();
+	}
+
+	@Test
+	void jumpTagExtraInfoAcceptsCurrentUnless() {
+		TagData tagData = Mockito.mock(TagData.class);
+		Mockito.when(tagData.getAttributeString("export")).thenReturn(null);
+		Mockito.when(tagData.getAttribute("unless")).thenReturn("current");
+
+		JumpTagExtraInfo info = new JumpTagExtraInfo();
 		assertThat(info.isValid(tagData)).isTrue();
 	}
 }
