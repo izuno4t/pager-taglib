@@ -4,6 +4,7 @@ package com.jsptags.navigation.pager.parser;
 import java.util.Hashtable;
 import java.io.StringReader;
 
+@SuppressWarnings("unchecked")
 public class TagExportParser implements TagExportParserConstants {
 
         private static Hashtable pagerTagExportCache = new Hashtable();

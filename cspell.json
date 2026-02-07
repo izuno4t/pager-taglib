@@ -12,15 +12,16 @@
     "**/*.jar",
     "**/mvnw",
     "**/mvnw.cmd",
-    "docs/pager-taglib.html",
+    ".gitignore",
     "src/main/java/com/jsptags/navigation/pager/parser/**"
   ],
   "ignoreRegExpList": [
     "[\\u3040-\\u30ff\\u4e00-\\u9fff]+"
   ],
   "words": [
-    "jsptags",
     "javacc",
+    "jsptags",
+    "Klicman",
     "pager",
     "taglib"
   ]
