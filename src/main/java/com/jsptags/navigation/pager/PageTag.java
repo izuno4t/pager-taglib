@@ -24,16 +24,16 @@ import javax.servlet.jsp.JspException;
 
 public final class PageTag extends PageTagSupport {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	public int doStartTag() throws JspException {
-		super.doStartTag();
+    @Override
+    public int doStartTag() throws JspException {
+        super.doStartTag();
 
-		setOffsetAttributes(pagerTag.getOffset());
+        setOffsetAttributes(pagerTag.getOffset());
 
-		return EVAL_BODY_INCLUDE;
-	}
+        return EVAL_BODY_INCLUDE;
+    }
 }
 
 /* vim:set ts=4 sw=4: */

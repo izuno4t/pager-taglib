@@ -6,6 +6,10 @@
 	<packaging>jar</packaging>
 	<properties>
 		<java.version>11</java.version>
+		<source.version>11</source.version>
+		<target.version>11</target.version>
+		<source.encoding>UTF-8</source.encoding>
+		<target.encoding>UTF-8</target.encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<build>
@@ -52,6 +56,70 @@
 						<phase>test</phase>
 						<goals>
 							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.11.0.3922</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.3.1</version>
+				<configuration>
+					<configLocation>config/checkstyle/checkstyle.xml</configLocation>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<consoleOutput>true</consoleOutput>
+					<failOnViolation>false</failOnViolation>
+				</configuration>
+				<executions>
+					<execution>
+						<id>checkstyle</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.22.0</version>
+				<configuration>
+					<rulesets>
+						<ruleset>config/pmd/pmd.xml</ruleset>
+					</rulesets>
+					<printFailingErrors>true</printFailingErrors>
+					<failOnViolation>false</failOnViolation>
+				</configuration>
+				<executions>
+					<execution>
+						<id>pmd</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>4.8.3.0</version>
+				<configuration>
+					<excludeFilterFile>config/spotbugs/spotbugs-exclude.xml</excludeFilterFile>
+					<failOnError>false</failOnError>
+				</configuration>
+				<executions>
+					<execution>
+						<id>spotbugs</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>check</goal>
 						</goals>
 					</execution>
 				</executions>

@@ -26,59 +26,59 @@ import java.io.IOException;
 
 public final class PagesTag extends PageTagSupport implements BodyTag {
 
-	private static final long serialVersionUID = 1L;
-	private BodyContent bodyContent = null;
-	private int page = 0;
-	private int lastPage = 0;
+    private static final long serialVersionUID = 1L;
+    private BodyContent bodyContent = null;
+    private int page = 0;
+    private int lastPage = 0;
 
-	public void setBodyContent(BodyContent bc) {
-		bodyContent = bc;
-	}
+    public void setBodyContent(BodyContent bc) {
+        bodyContent = bc;
+    }
 
-	@Override
-	public int doStartTag() throws JspException {
-		super.doStartTag();
+    @Override
+    public int doStartTag() throws JspException {
+        super.doStartTag();
 
-		int firstPage = pagerTag.getFirstIndexPage();
-		lastPage = pagerTag.getLastIndexPage(firstPage);
-		page = firstPage;
+        int firstPage = pagerTag.getFirstIndexPage();
+        lastPage = pagerTag.getLastIndexPage(firstPage);
+        page = firstPage;
 
-		return (page <= lastPage ? EVAL_BODY_BUFFERED : SKIP_BODY);
-	}
+        return (page <= lastPage ? EVAL_BODY_BUFFERED : SKIP_BODY);
+    }
 
-	public void doInitBody() throws JspException {
-		setPageAttributes(page);
-		page++;
-	}
+    public void doInitBody() throws JspException {
+        setPageAttributes(page);
+        page++;
+    }
 
-	@Override
-	public int doAfterBody() throws JspException {
-		if (page <= lastPage) {
-			setPageAttributes(page);
-			page++;
-			return EVAL_BODY_BUFFERED;
-		} else {
-			try {
-				bodyContent.writeOut(bodyContent.getEnclosingWriter());
-				return SKIP_BODY;
-			} catch (IOException e) {
-				throw new JspTagException(e.toString());
-			}
-		}
-	}
+    @Override
+    public int doAfterBody() throws JspException {
+        if (page <= lastPage) {
+            setPageAttributes(page);
+            page++;
+            return EVAL_BODY_BUFFERED;
+        } else {
+            try {
+                bodyContent.writeOut(bodyContent.getEnclosingWriter());
+                return SKIP_BODY;
+            } catch (IOException e) {
+                throw new JspTagException(e.toString());
+            }
+        }
+    }
 
-	@Override
-	public int doEndTag() throws JspException {
-		bodyContent = null;
-		super.doEndTag();
-		return EVAL_PAGE;
-	}
+    @Override
+    public int doEndTag() throws JspException {
+        bodyContent = null;
+        super.doEndTag();
+        return EVAL_PAGE;
+    }
 
-	@Override
-	public void release() {
-		bodyContent = null;
-		super.release();
-	}
+    @Override
+    public void release() {
+        bodyContent = null;
+        super.release();
+    }
 }
 
 /* vim:set ts=4 sw=4: */

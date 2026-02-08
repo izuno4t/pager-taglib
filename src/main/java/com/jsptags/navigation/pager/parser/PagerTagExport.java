@@ -23,25 +23,25 @@ package com.jsptags.navigation.pager.parser;
 public final class PagerTagExport {
 
     public static final String
-	PAGE_OFFSET = "pageOffset",
-	PAGE_NUMBER = "pageNumber";
+    PAGE_OFFSET = "pageOffset",
+    PAGE_NUMBER = "pageNumber";
 
     private String pageOffset = null;
     private String pageNumber = null;
 
     final void setPageOffset(String id) {
-	pageOffset = id;
+    pageOffset = id;
     }
 
     final void setPageNumber(String id) {
-	pageNumber = id;
+    pageNumber = id;
     }
 
     public final String getPageOffset() {
-	return pageOffset;
+    return pageOffset;
     }
 
     public final String getPageNumber() {
-	return pageNumber;
+    return pageNumber;
     }
 }

@@ -24,20 +24,20 @@ import javax.servlet.jsp.tagext.TagData;
 
 public final class JumpTagExtraInfo extends PageTagExtraInfo {
 
-	@Override
-	public boolean isValid(TagData tagData) {
-		if (!super.isValid(tagData)) {
-			return false;
-		}
+    @Override
+    public boolean isValid(TagData tagData) {
+        if (!super.isValid(tagData)) {
+            return false;
+        }
 
-		Object val = tagData.getAttribute("unless");
-		if (val != null && val != TagData.REQUEST_TIME_VALUE && val instanceof String) {
-			String unless = (String) val;
-			return (JumpTagSupport.INDEXED.equals(unless) ||
-					JumpTagSupport.CURRENT.equals(unless));
-		}
-		return true;
-	}
+        Object val = tagData.getAttribute("unless");
+        if (val != null && val != TagData.REQUEST_TIME_VALUE && val instanceof String) {
+            String unless = (String) val;
+            return (JumpTagSupport.INDEXED.equals(unless) ||
+                    JumpTagSupport.CURRENT.equals(unless));
+        }
+        return true;
+    }
 }
 
 /* vim:set ts=4 sw=4: */

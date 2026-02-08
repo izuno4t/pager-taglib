@@ -22,16 +22,16 @@ package com.jsptags.navigation.pager;
 
 public final class PrevTag extends SkipTagSupport {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	protected boolean skip() {
-		boolean hasPage = pagerTag.hasPrevPage();
-		if (hasPage) {
-			setOffsetAttributes(pagerTag.getPrevOffset());
-		}
-		return hasPage;
-	}
+    @Override
+    protected boolean skip() {
+        boolean hasPage = pagerTag.hasPrevPage();
+        if (hasPage) {
+            setOffsetAttributes(pagerTag.getPrevOffset());
+        }
+        return hasPage;
+    }
 }
 
 /* vim:set ts=4 sw=4: */

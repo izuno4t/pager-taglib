@@ -22,12 +22,12 @@ package com.jsptags.navigation.pager;
 
 public final class LastTag extends JumpTagSupport {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	protected int getJumpPage() {
-		return (pagerTag.getPageCount() - 1);
-	}
+    @Override
+    protected int getJumpPage() {
+        return (pagerTag.getPageCount() - 1);
+    }
 }
 
 /* vim:set ts=4 sw=4: */
