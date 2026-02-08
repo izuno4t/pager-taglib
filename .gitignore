@@ -210,3 +210,4 @@ buildNumber.properties
 
 # End of https://www.gitignore.io/api/java,maven,eclipse,intellij,visualstudiocode
 /.sdkmanrc
+.DS_Store

@@ -1,0 +1,28 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "allowCompoundWords": false,
+  "ignorePaths": [
+    "**/.git/**",
+    "**/.idea/**",
+    "**/.vscode/**",
+    "**/node_modules/**",
+    "**/target/**",
+    "**/*.class",
+    "**/*.jar",
+    "**/mvnw",
+    "**/mvnw.cmd",
+    ".gitignore",
+    "src/main/java/com/jsptags/navigation/pager/parser/**"
+  ],
+  "ignoreRegExpList": [
+    "[\\u3040-\\u30ff\\u4e00-\\u9fff]+"
+  ],
+  "words": [
+    "javacc",
+    "jsptags",
+    "Klicman",
+    "pager",
+    "taglib"
+  ]
+}
